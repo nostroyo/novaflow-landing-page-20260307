@@ -3,93 +3,144 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NovaFlow — Automate Work, Keep the Human Touch</title>
-    <meta name="description" content="NovaFlow helps teams automate repetitive work with AI copilots while keeping full human control." />
+    <title>RacePact MVP — Zero Friction. Fully Loaded.</title>
+    <meta
+      name="description"
+      content="RacePact is a zero-friction F1 racing MVP: instant browser play, no auth upfront, 7 AI opponents, and a 30-second journey from click to race."
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header class="site-header">
       <div class="container nav">
-        <div class="logo">NovaFlow</div>
-        <a class="btn btn-ghost" href="#contact">Book a Demo</a>
+        <a class="logo" href="#top">RacePact</a>
+        <a class="btn btn-ghost" href="#play-now">Play the MVP</a>
       </div>
     </header>
 
-    <main>
+    <main id="top">
       <section class="hero">
         <div class="container hero-grid">
           <div>
-            <p class="badge">AI Workflow Platform</p>
-            <h1>Automate operations without losing your human edge.</h1>
-            <p class="lead">NovaFlow handles repetitive operations across support, ops, and sales so your team can focus on decisions that matter.</p>
-            <div class="cta-row">
-              <a class="btn btn-primary" href="#contact">Start Free</a>
-              <a class="btn btn-secondary" href="#features">See Features</a>
+            <p class="eyebrow">ZERO FRICTION MVP — FULLY LOADED</p>
+            <h1>If they have to sign up before they have fun, we’ve lost them.</h1>
+            <p class="lead">
+              RacePact launches straight into action: in-browser race, no auth wall, 7 AI opponents, and a full MVP shipped in 3 weeks.
+            </p>
+            <div class="cta-row" id="play-now">
+              <a class="btn btn-primary" href="#journey">Race in 30 seconds</a>
+              <a class="btn btn-secondary" href="#phases">See the 3-week plan</a>
             </div>
-            <p class="meta">No credit card · Free plan forever · Setup in 10 minutes</p>
+            <p class="micro">Guest play first. Accounts later. Conversion when excitement is highest.</p>
           </div>
-          <div class="card hero-card">
-            <h3>Live Workflow Snapshot</h3>
+
+          <aside class="glass-card hero-card">
+            <h2>MVP launch snapshot</h2>
             <ul>
-              <li><span>Support triage</span><strong>98% automated</strong></li>
-              <li><span>Lead enrichment</span><strong>6.3x faster</strong></li>
-              <li><span>SLA compliance</span><strong>+31%</strong></li>
+              <li><span>Play mode</span><strong>Instant browser race</strong></li>
+              <li><span>Gatekeeping</span><strong>None (no upfront auth)</strong></li>
+              <li><span>Opponents</span><strong>7 AI drivers</strong></li>
+              <li><span>Infrastructure</span><strong>$0/month until accounts</strong></li>
             </ul>
-            <p class="fine">Updated in real-time from your tools.</p>
-          </div>
+          </aside>
         </div>
       </section>
 
-      <section id="features" class="section">
+      <section class="section" id="journey">
         <div class="container">
-          <h2>Everything you need to run autonomous workflows safely</h2>
-          <div class="features-grid">
-            <article class="card">
-              <h3>Visual Workflow Builder</h3>
-              <p>Drag-and-drop automations for tickets, CRM updates, onboarding flows, and internal ops handoffs.</p>
+          <h2>30-second player journey</h2>
+          <div class="journey-grid">
+            <article class="step glass-card">
+              <span>00s</span>
+              <h3>Land</h3>
+              <p>Player arrives and taps <strong>Play Now</strong>. No forms. No login dead-end.</p>
             </article>
-            <article class="card">
-              <h3>Human-in-the-Loop Controls</h3>
-              <p>Set confidence thresholds and approval gates so nothing critical ships without the right person.</p>
+            <article class="step glass-card">
+              <span>10s</span>
+              <h3>Race</h3>
+              <p>Track loads with <strong>7 AI opponents</strong>. Player is already competing before attention drops.</p>
             </article>
-            <article class="card">
-              <h3>Plug-and-Play Integrations</h3>
-              <p>Connect Slack, Gmail, Notion, HubSpot, Jira, and 100+ tools in minutes with no custom code.</p>
+            <article class="step glass-card">
+              <span>25s</span>
+              <h3>Share</h3>
+              <p>Result card + one-tap social share creates the viral loop while adrenaline is still high.</p>
+            </article>
+            <article class="step glass-card">
+              <span>30s+</span>
+              <h3>Monetize</h3>
+              <p>Only then: optional account creation and <strong>$0.29 upgrade</strong>.</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="section alt">
+      <section class="section alt" id="phases">
+        <div class="container">
+          <h2>3-week MVP build plan</h2>
+          <div class="phases-grid">
+            <article class="phase glass-card">
+              <p class="phase-tag">Week 1</p>
+              <h3>Core loop first</h3>
+              <p>Deliver a complete, playable race versus AI. Prioritize feel, responsiveness, and instant replayability.</p>
+            </article>
+            <article class="phase glass-card">
+              <p class="phase-tag">Week 2</p>
+              <h3>Live race data</h3>
+              <p>Add real F1 event data via OpenF1 and include <strong>3 historical replays</strong> for always-on content.</p>
+            </article>
+            <article class="phase glass-card">
+              <p class="phase-tag">Week 3</p>
+              <h3>Polish + viral mechanics</h3>
+              <p>Animation passes, mobile optimization, and high-conversion share cards to accelerate organic growth.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="stack">
         <div class="container two-col">
           <div>
-            <h2>Built for teams that move fast</h2>
-            <p>From startup operators to enterprise PMOs, NovaFlow adapts to your process and scales with your throughput.</p>
+            <h2>Zero infrastructure architecture</h2>
+            <p>
+              This MVP is intentionally lean: fast to ship, cheap to run, and designed to validate demand before backend complexity.
+            </p>
+            <ul class="bullets">
+              <li>Zustand + LocalStorage for game/client state</li>
+              <li>Guest play by default, account only when value is proven</li>
+              <li>Static Next.js deployment</li>
+              <li>Client-side OpenF1 polling</li>
+              <li>No server in MVP, no multiplayer in MVP</li>
+              <li><strong>$0/month ops until accounts are introduced</strong></li>
+            </ul>
           </div>
-          <div class="stats">
-            <div><strong>2.4M+</strong><span>tasks automated monthly</span></div>
-            <div><strong>99.95%</strong><span>platform uptime</span></div>
-            <div><strong>40 hrs</strong><span>saved per team / week</span></div>
+          <div class="glass-card metric-card">
+            <h3>What this strategy buys us</h3>
+            <div class="metric"><strong>Ship speed</strong><span>3 weeks to playable MVP</span></div>
+            <div class="metric"><strong>Risk</strong><span>Low infra commitment, high learning velocity</span></div>
+            <div class="metric"><strong>Conversion model</strong><span>Fun first → social proof → optional spend</span></div>
           </div>
         </div>
       </section>
 
-      <section id="contact" class="section">
-        <div class="container contact">
-          <h2>Ready to launch your first autonomous workflow?</h2>
-          <p>Get started with our free plan today.</p>
-          <a class="btn btn-primary" href="mailto:hello@novaflow.example">Contact Sales</a>
+      <section class="section final-cta">
+        <div class="container cta-box glass-card">
+          <h2>Ready to prove demand before building heavy infrastructure?</h2>
+          <p>Launch the zero-friction RacePact MVP and turn first-time visitors into racers in under 30 seconds.</p>
+          <div class="cta-row center">
+            <a class="btn btn-primary" href="#top">Start Zero-Friction Launch</a>
+            <a class="btn btn-secondary" href="#stack">View MVP architecture</a>
+          </div>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
       <div class="container footer-row">
-        <span>© 2026 NovaFlow</span>
-        <span>Automate boldly. Stay in control.</span>
+        <span>© 2026 RacePact</span>
+        <span>Fun first. Friction later.</span>
       </div>
     </footer>
   </body>

@@ -1,11 +1,11 @@
-# NovaFlow Landing Page
+# RacePact Landing Page
 
-Responsive single-page marketing site for a fictional AI workflow platform.
+Conversion-focused single-page site for the **Zero Friction MVP — Fully Loaded** launch.
 
 ## Local preview
 
-Open `index.html` in a browser.
+Open `index.html` in your browser.
 
 ## Deployment
 
-Published via GitHub Pages from the `main` branch root.
+Published via **GitHub Pages** from the `main` branch root.
