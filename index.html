@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RacePact MVP — Zero Friction. Fully Loaded.</title>
+    <title>RacePact MVP — Play Instantly (No Login)</title>
     <meta
       name="description"
-      content="RacePact is a zero-friction F1 racing MVP: instant browser play, no auth upfront, 7 AI opponents, and a 30-second journey from click to race."
+      content="RacePact MVP is ready to play instantly in your browser with no login. 7 AI opponents, F1-inspired strategy, weather shifts, pit timing, and overtaking windows."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,7 +17,7 @@
     <header class="site-header">
       <div class="container nav">
         <a class="logo" href="#top">RacePact</a>
-        <a class="btn btn-ghost" href="#play-now">Play the MVP</a>
+        <a class="btn btn-ghost" href="#mvp-game">Play now (Guest)</a>
       </div>
     </header>
 
@@ -25,76 +25,98 @@
       <section class="hero">
         <div class="container hero-grid">
           <div>
-            <p class="eyebrow">ZERO FRICTION MVP — FULLY LOADED</p>
-            <h1>If they have to sign up before they have fun, we’ve lost them.</h1>
+            <p class="eyebrow">MVP READY — NO LOGIN REQUIRED</p>
+            <h1>Instant race. Real strategy. Zero account friction.</h1>
             <p class="lead">
-              RacePact launches straight into action: in-browser race, no auth wall, 7 AI opponents, and a full MVP shipped in 3 weeks.
+              Tap play and jump straight into a 12-lap sprint versus 7 AI drivers. This MVP applies core F1 dynamics: pace,
+              tire risk, weather shifts, pit windows, overtakes, and consistency.
             </p>
             <div class="cta-row" id="play-now">
-              <a class="btn btn-primary" href="#journey">Race in 30 seconds</a>
-              <a class="btn btn-secondary" href="#phases">See the 3-week plan</a>
+              <a class="btn btn-primary" href="#mvp-game">Start guest race</a>
+              <a class="btn btn-secondary" href="#f1-model">See F1 model</a>
             </div>
-            <p class="micro">Guest play first. Accounts later. Conversion when excitement is highest.</p>
+            <p class="micro">Guest-first flow: play first, account later (optional).</p>
           </div>
 
           <aside class="glass-card hero-card">
             <h2>MVP launch snapshot</h2>
             <ul>
-              <li><span>Play mode</span><strong>Instant browser race</strong></li>
-              <li><span>Gatekeeping</span><strong>None (no upfront auth)</strong></li>
-              <li><span>Opponents</span><strong>7 AI drivers</strong></li>
-              <li><span>Infrastructure</span><strong>$0/month until accounts</strong></li>
+              <li><span>Start time</span><strong>&lt; 5 seconds</strong></li>
+              <li><span>Auth gate</span><strong>None</strong></li>
+              <li><span>Grid</span><strong>8 drivers (you + 7 AI)</strong></li>
+              <li><span>Mode</span><strong>Playable in browser now</strong></li>
             </ul>
           </aside>
         </div>
       </section>
 
-      <section class="section" id="journey">
-        <div class="container">
-          <h2>30-second player journey</h2>
-          <div class="journey-grid">
-            <article class="step glass-card">
-              <span>00s</span>
-              <h3>Land</h3>
-              <p>Player arrives and taps <strong>Play Now</strong>. No forms. No login dead-end.</p>
-            </article>
-            <article class="step glass-card">
-              <span>10s</span>
-              <h3>Race</h3>
-              <p>Track loads with <strong>7 AI opponents</strong>. Player is already competing before attention drops.</p>
-            </article>
-            <article class="step glass-card">
-              <span>25s</span>
-              <h3>Share</h3>
-              <p>Result card + one-tap social share creates the viral loop while adrenaline is still high.</p>
-            </article>
-            <article class="step glass-card">
-              <span>30s+</span>
-              <h3>Monetize</h3>
-              <p>Only then: optional account creation and <strong>$0.29 upgrade</strong>.</p>
-            </article>
-          </div>
+      <section class="section" id="mvp-game">
+        <div class="container two-col game-layout">
+          <article class="glass-card game-card">
+            <div class="game-head">
+              <h2>Race Director Console</h2>
+              <span id="race-status" class="status-pill">Ready</span>
+            </div>
+
+            <div class="controls-grid">
+              <label>
+                Pace mode
+                <select id="pace-mode">
+                  <option value="conserve">Conserve</option>
+                  <option value="balanced" selected>Balanced</option>
+                  <option value="push">Push</option>
+                </select>
+              </label>
+
+              <label>
+                Tire call
+                <select id="pit-call">
+                  <option value="none" selected>No pit this lap</option>
+                  <option value="soft">Pit for Soft</option>
+                  <option value="medium">Pit for Medium</option>
+                  <option value="hard">Pit for Hard</option>
+                  <option value="inter">Pit for Inter</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="cta-row">
+              <button id="start-race" class="btn btn-primary" type="button">Start instant race</button>
+              <button id="run-lap" class="btn btn-secondary" type="button" disabled>Run next lap</button>
+              <button id="quick-race" class="btn btn-ghost" type="button" disabled>Auto-finish race</button>
+            </div>
+
+            <p id="race-summary" class="micro">No login. No setup. Press start and race as a guest.</p>
+          </article>
+
+          <aside class="glass-card telemetry-card">
+            <h3>Live telemetry</h3>
+            <div id="lap-info" class="metric-list"></div>
+            <h4>Leaderboard</h4>
+            <ol id="leaderboard" class="leaderboard"></ol>
+          </aside>
         </div>
       </section>
 
-      <section class="section alt" id="phases">
+      <section class="section alt" id="f1-model">
         <div class="container">
-          <h2>3-week MVP build plan</h2>
+          <h2>F1-inspired base characteristics in this MVP</h2>
           <div class="phases-grid">
             <article class="phase glass-card">
-              <p class="phase-tag">Week 1</p>
-              <h3>Core loop first</h3>
-              <p>Deliver a complete, playable race versus AI. Prioritize feel, responsiveness, and instant replayability.</p>
+              <p class="phase-tag">Pace + consistency</p>
+              <p>Each driver has a pace rating and consistency variance influencing lap-by-lap reliability.</p>
             </article>
             <article class="phase glass-card">
-              <p class="phase-tag">Week 2</p>
-              <h3>Live race data</h3>
-              <p>Add real F1 event data via OpenF1 and include <strong>3 historical replays</strong> for always-on content.</p>
+              <p class="phase-tag">Tire strategy + risk</p>
+              <p>Soft/medium/hard/inter compounds trade immediate speed for degradation and weather resilience.</p>
             </article>
             <article class="phase glass-card">
-              <p class="phase-tag">Week 3</p>
-              <h3>Polish + viral mechanics</h3>
-              <p>Animation passes, mobile optimization, and high-conversion share cards to accelerate organic growth.</p>
+              <p class="phase-tag">Weather impact</p>
+              <p>Dynamic rain probability punishes wrong compounds and rewards wet skill + timely pit decisions.</p>
+            </article>
+            <article class="phase glass-card">
+              <p class="phase-tag">Overtaking windows</p>
+              <p>DRS-style overtaking windows reward push mode, overtake rating, and tire delta at key laps.</p>
             </article>
           </div>
         </div>
@@ -103,35 +125,20 @@
       <section class="section" id="stack">
         <div class="container two-col">
           <div>
-            <h2>Zero infrastructure architecture</h2>
-            <p>
-              This MVP is intentionally lean: fast to ship, cheap to run, and designed to validate demand before backend complexity.
-            </p>
+            <h2>Guest-first MVP architecture</h2>
             <ul class="bullets">
-              <li>Zustand + LocalStorage for game/client state</li>
-              <li>Guest play by default, account only when value is proven</li>
-              <li>Static Next.js deployment</li>
-              <li>Client-side OpenF1 polling</li>
-              <li>No server in MVP, no multiplayer in MVP</li>
-              <li><strong>$0/month ops until accounts are introduced</strong></li>
+              <li>Pure static front-end (HTML/CSS/JS)</li>
+              <li>Session-only race state (no backend required)</li>
+              <li>LocalStorage best result for replay loop</li>
+              <li>No auth dependency to start racing</li>
+              <li>Optional account layer can be added later</li>
             </ul>
           </div>
           <div class="glass-card metric-card">
-            <h3>What this strategy buys us</h3>
-            <div class="metric"><strong>Ship speed</strong><span>3 weeks to playable MVP</span></div>
-            <div class="metric"><strong>Risk</strong><span>Low infra commitment, high learning velocity</span></div>
-            <div class="metric"><strong>Conversion model</strong><span>Fun first → social proof → optional spend</span></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section final-cta">
-        <div class="container cta-box glass-card">
-          <h2>Ready to prove demand before building heavy infrastructure?</h2>
-          <p>Launch the zero-friction RacePact MVP and turn first-time visitors into racers in under 30 seconds.</p>
-          <div class="cta-row center">
-            <a class="btn btn-primary" href="#top">Start Zero-Friction Launch</a>
-            <a class="btn btn-secondary" href="#stack">View MVP architecture</a>
+            <h3>Why this is "play fast" ready</h3>
+            <div class="metric"><strong>Friction</strong><span>Zero onboarding steps before gameplay</span></div>
+            <div class="metric"><strong>Session length</strong><span>~60–90s for a full race simulation</span></div>
+            <div class="metric"><strong>Ops</strong><span>No server auth or multiplayer complexity in MVP</span></div>
           </div>
         </div>
       </section>
@@ -140,8 +147,10 @@
     <footer class="site-footer">
       <div class="container footer-row">
         <span>© 2026 RacePact</span>
-        <span>Fun first. Friction later.</span>
+        <span>Play first. Login later (optional).</span>
       </div>
     </footer>
+
+    <script src="game.js"></script>
   </body>
 </html>

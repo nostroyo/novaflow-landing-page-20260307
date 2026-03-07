@@ -59,7 +59,7 @@ body {
 }
 
 .hero {
-  padding: clamp(3.2rem, 7vw, 5.6rem) 0 2.8rem;
+  padding: clamp(3rem, 7vw, 5.2rem) 0 2.5rem;
 }
 
 .hero-grid {
@@ -80,32 +80,37 @@ body {
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
   line-height: 1.15;
   margin-top: 0;
 }
 
 h1 {
   margin-bottom: 0.9rem;
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(2rem, 5vw, 3.3rem);
 }
 
 h2 {
-  font-size: clamp(1.5rem, 3vw, 2.3rem);
+  font-size: clamp(1.45rem, 3vw, 2.2rem);
+}
+
+h4 {
+  margin: 0.8rem 0 0.45rem;
 }
 
 .lead {
   margin: 0;
   max-width: 62ch;
   color: #c5cfef;
-  font-size: 1.07rem;
+  font-size: 1.05rem;
 }
 
 .cta-row {
   display: flex;
   flex-wrap: wrap;
   gap: 0.72rem;
-  margin-top: 1.35rem;
+  margin-top: 1.2rem;
 }
 
 .micro {
@@ -122,9 +127,16 @@ h2 {
   border-radius: 0.78rem;
   font-weight: 700;
   transition: transform 0.18s ease, opacity 0.18s ease, border-color 0.18s ease;
+  background: transparent;
+  cursor: pointer;
 }
 
-.btn:hover {
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.btn:hover:not(:disabled) {
   transform: translateY(-1px);
 }
 
@@ -149,12 +161,14 @@ h2 {
   border-radius: 1.08rem;
 }
 
-.hero-card {
-  padding: 1.15rem;
+.hero-card,
+.game-card,
+.telemetry-card {
+  padding: 1.1rem;
 }
 
 .hero-card h2 {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   margin-bottom: 0.85rem;
 }
 
@@ -187,7 +201,75 @@ h2 {
 }
 
 .section {
-  padding: 3.2rem 0;
+  padding: 3rem 0;
+}
+
+.game-layout {
+  align-items: start;
+}
+
+.game-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.status-pill {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.18rem 0.65rem;
+  font-size: 0.82rem;
+  color: #9fffe5;
+}
+
+.controls-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin-top: 0.7rem;
+}
+
+label {
+  display: grid;
+  gap: 0.35rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+select {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 0.7rem;
+  background: #0d152b;
+  color: var(--text);
+  padding: 0.58rem;
+}
+
+.metric-list {
+  display: grid;
+  gap: 0.42rem;
+  margin-bottom: 0.75rem;
+}
+
+.metric-list div {
+  border-top: 1px dashed rgba(255, 255, 255, 0.16);
+  padding-top: 0.45rem;
+  font-size: 0.9rem;
+  color: #c9d2f0;
+}
+
+.metric-list div:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.leaderboard {
+  margin: 0;
+  padding-left: 1.15rem;
+  display: grid;
+  gap: 0.3rem;
+  font-size: 0.9rem;
 }
 
 .journey-grid,
@@ -199,20 +281,8 @@ h2 {
 }
 
 .phase {
-  min-height: 100%;
-}
-
-.step,
-.phase {
   padding: 1rem;
-}
-
-.step span {
-  display: inline-block;
-  margin-bottom: 0.45rem;
-  color: #9bffe5;
-  font-weight: 800;
-  font-size: 0.88rem;
+  min-height: 100%;
 }
 
 .phase-tag {
@@ -267,20 +337,6 @@ h2 {
   font-size: 0.94rem;
 }
 
-.final-cta {
-  padding-top: 2.2rem;
-  padding-bottom: 4rem;
-}
-
-.cta-box {
-  text-align: center;
-  padding: clamp(1.2rem, 3vw, 2rem);
-}
-
-.center {
-  justify-content: center;
-}
-
 .site-footer {
   border-top: 1px solid var(--line);
   padding: 1rem 0;
@@ -299,7 +355,8 @@ h2 {
   .hero-grid,
   .journey-grid,
   .phases-grid,
-  .two-col {
+  .two-col,
+  .controls-grid {
     grid-template-columns: 1fr;
   }
 
