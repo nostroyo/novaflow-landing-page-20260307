@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RacePact MVP — Play Instantly (No Login)</title>
+    <title>RacePact MVP — Bird's-eye Sprint</title>
     <meta
       name="description"
-      content="RacePact MVP is ready to play instantly in your browser with no login. 7 AI opponents, F1-inspired strategy, weather shifts, pit timing, and overtaking windows."
+      content="RacePact MVP with 22-car bird's-eye sprint, booster cards, and straight/curve stat-based turn resolution."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -25,26 +25,26 @@
       <section class="hero">
         <div class="container hero-grid">
           <div>
-            <p class="eyebrow">MVP READY — NO LOGIN REQUIRED</p>
-            <h1>Instant race. Real strategy. Zero account friction.</h1>
+            <p class="eyebrow">MVP UPDATE — BOOSTER CARDS LIVE</p>
+            <h1>22 cars. Bird's-eye race flow. One booster choice each turn.</h1>
             <p class="lead">
-              Tap play and jump straight into a 12-lap sprint versus 7 AI drivers. This MVP applies core F1 dynamics: pace,
-              tire risk, weather shifts, pit windows, overtakes, and consistency.
+              Each turn has a straight or curve focus. Choose one booster card (+1 or +2), apply the matching car stat,
+              and fight for position through movement swings.
             </p>
             <div class="cta-row" id="play-now">
               <a class="btn btn-primary" href="#mvp-game">Start guest race</a>
-              <a class="btn btn-secondary" href="#f1-model">See F1 model</a>
+              <a class="btn btn-secondary" href="#rules">See rules</a>
             </div>
-            <p class="micro">Guest-first flow: play first, account later (optional).</p>
+            <p class="micro">Pit stops removed for MVP clarity. Ranking is movement-score driven.</p>
           </div>
 
           <aside class="glass-card hero-card">
             <h2>MVP launch snapshot</h2>
             <ul>
-              <li><span>Start time</span><strong>&lt; 5 seconds</strong></li>
-              <li><span>Auth gate</span><strong>None</strong></li>
-              <li><span>Grid</span><strong>8 drivers (you + 7 AI)</strong></li>
-              <li><span>Mode</span><strong>Playable in browser now</strong></li>
+              <li><span>Grid</span><strong>22 cars</strong></li>
+              <li><span>View</span><strong>Stylized bird's-eye</strong></li>
+              <li><span>Player boosters</span><strong>3 total cards</strong></li>
+              <li><span>Turn formula</span><strong>stat + booster</strong></li>
             </ul>
           </aside>
         </div>
@@ -60,86 +60,62 @@
 
             <div class="controls-grid">
               <label>
-                Pace mode
-                <select id="pace-mode">
-                  <option value="conserve">Conserve</option>
-                  <option value="balanced" selected>Balanced</option>
-                  <option value="push">Push</option>
-                </select>
+                Booster card
+                <select id="booster-card"></select>
               </label>
 
               <label>
-                Tire call
-                <select id="pit-call">
-                  <option value="none" selected>No pit this lap</option>
-                  <option value="soft">Pit for Soft</option>
-                  <option value="medium">Pit for Medium</option>
-                  <option value="hard">Pit for Hard</option>
-                  <option value="inter">Pit for Inter</option>
-                </select>
+                Next segment focus
+                <div class="focus-box" id="focus-badge">-</div>
               </label>
             </div>
 
             <div class="cta-row">
               <button id="start-race" class="btn btn-primary" type="button">Start instant race</button>
-              <button id="run-lap" class="btn btn-secondary" type="button" disabled>Run next lap</button>
-              <button id="quick-race" class="btn btn-ghost" type="button" disabled>Auto-finish race</button>
+              <button id="run-turn" class="btn btn-secondary" type="button" disabled>Run next turn</button>
+              <button id="auto-race" class="btn btn-ghost" type="button" disabled>Auto-finish race</button>
             </div>
 
-            <p id="race-summary" class="micro">No login. No setup. Press start and race as a guest.</p>
+            <p id="race-summary" class="micro">No login. Press start and race with 22 cars.</p>
           </article>
 
           <aside class="glass-card telemetry-card">
             <h3>Live telemetry</h3>
-            <div id="lap-info" class="metric-list"></div>
+            <div id="turn-info" class="metric-list"></div>
             <h4>Leaderboard</h4>
             <ol id="leaderboard" class="leaderboard"></ol>
           </aside>
         </div>
       </section>
 
-      <section class="section alt" id="f1-model">
+      <section class="section alt" id="rules">
         <div class="container">
-          <h2>F1-inspired base characteristics in this MVP</h2>
+          <h2>Rules in this MVP</h2>
           <div class="phases-grid">
             <article class="phase glass-card">
-              <p class="phase-tag">Pace + consistency</p>
-              <p>Each driver has a pace rating and consistency variance influencing lap-by-lap reliability.</p>
+              <p class="phase-tag">Booster cards</p>
+              <p>You hold exactly 3 cards total for the race. Each turn you may play 1 card (+1 or +2), if still available.</p>
             </article>
             <article class="phase glass-card">
-              <p class="phase-tag">Tire strategy + risk</p>
-              <p>Soft/medium/hard/inter compounds trade immediate speed for degradation and weather resilience.</p>
+              <p class="phase-tag">Car stats model</p>
+              <p>Every car has straight, curve, and reliability. Straight/curve are car traits, reliability is pilot consistency.</p>
             </article>
             <article class="phase glass-card">
-              <p class="phase-tag">Weather impact</p>
-              <p>Dynamic rain probability punishes wrong compounds and rewards wet skill + timely pit decisions.</p>
+              <p class="phase-tag">Turn resolution</p>
+              <p>Movement score = focused stat (straight or curve) + booster used (+ reliability influence only via variance).</p>
             </article>
             <article class="phase glass-card">
-              <p class="phase-tag">Overtaking windows</p>
-              <p>DRS-style overtaking windows reward push mode, overtake rating, and tire delta at key laps.</p>
+              <p class="phase-tag">Move up/down behavior</p>
+              <p>Cars are ranked by cumulative movement. Close gaps + stronger turn momentum trigger positional swings.</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="section" id="stack">
-        <div class="container two-col">
-          <div>
-            <h2>Guest-first MVP architecture</h2>
-            <ul class="bullets">
-              <li>Pure static front-end (HTML/CSS/JS)</li>
-              <li>Session-only race state (no backend required)</li>
-              <li>LocalStorage best result for replay loop</li>
-              <li>No auth dependency to start racing</li>
-              <li>Optional account layer can be added later</li>
-            </ul>
-          </div>
-          <div class="glass-card metric-card">
-            <h3>Why this is "play fast" ready</h3>
-            <div class="metric"><strong>Friction</strong><span>Zero onboarding steps before gameplay</span></div>
-            <div class="metric"><strong>Session length</strong><span>~60–90s for a full race simulation</span></div>
-            <div class="metric"><strong>Ops</strong><span>No server auth or multiplayer complexity in MVP</span></div>
-          </div>
+      <section class="section" id="birdseye">
+        <div class="container">
+          <h2>22-car bird's-eye representation</h2>
+          <ol id="birdseye-grid" class="birdseye-grid"></ol>
         </div>
       </section>
     </main>
@@ -147,10 +123,11 @@
     <footer class="site-footer">
       <div class="container footer-row">
         <span>© 2026 RacePact</span>
-        <span>Play first. Login later (optional).</span>
+        <span>Bird's-eye MVP · 22 cars · booster cards</span>
       </div>
     </footer>
 
+    <script src="race-core.js"></script>
     <script src="game.js"></script>
   </body>
 </html>
